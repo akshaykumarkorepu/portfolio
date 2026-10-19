@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Lightbulb, Cpu, Code2, Microscope } from "lucide-react";
 
 const STAGES = [
@@ -76,7 +76,7 @@ export default function EngineeringMindset() {
             />
           </div>
 
-          {STAGES.map((stage, idx) => (
+          {STAGES.map((stage) => (
             <motion.div
               key={stage.step}
               initial={{ opacity: 0, x: -20 }}

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, ExternalLink } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { email, githubUrl, gmailComposeHref, linkedinUrl } from "@/data";
 import { GitHubIcon, LinkedInIcon } from "@/components/shared/BrandIcons";

@@ -96,6 +96,6 @@ export default function Skills() {
   );
 }
 
-function cn(...classes: any[]) {
+function cn(...classes: (string | false | null | undefined)[]) {
   return classes.filter(Boolean).join(" ");
 }

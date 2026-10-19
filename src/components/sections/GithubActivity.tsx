@@ -6,6 +6,12 @@ import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { githubUrl } from "@/data";
 
+// Decorative bars with fixed heights; random values would differ between server and client renders.
+const BAR_HEIGHTS = [
+  42, 68, 25, 90, 55, 33, 77, 61, 18, 84, 47, 70, 29, 95, 52,
+  38, 81, 64, 22, 73, 58, 35, 88, 44, 66, 27, 79, 50, 31, 86,
+];
+
 export default function GithubActivity() {
   return (
     <section id="github" className="py-32 px-6 bg-background relative overflow-hidden">
@@ -74,11 +80,11 @@ export default function GithubActivity() {
               </div>
 
               <div className="w-full h-32 flex items-end gap-2 justify-center opacity-30">
-                {[...Array(30)].map((_, i) => (
+                {BAR_HEIGHTS.map((height, i) => (
                   <motion.div
                     key={i}
                     initial={{ height: 0 }}
-                    whileInView={{ height: `${Math.random() * 100}%` }}
+                    whileInView={{ height: `${height}%` }}
                     transition={{ duration: 1, delay: i * 0.03 }}
                     className="w-2 bg-primary rounded-t-sm"
                   />

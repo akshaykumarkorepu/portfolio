@@ -109,6 +109,6 @@ export default function Experience() {
   );
 }
 
-function cn(...classes: any[]) {
+function cn(...classes: (string | false | null | undefined)[]) {
   return classes.filter(Boolean).join(" ");
 }
