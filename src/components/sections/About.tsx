@@ -3,14 +3,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
-
-const INTERESTS = [
-  {
-    category: "AI Engineering",
-    topics: ["Generative AI", "RAG", "AI Agents", "Computer Vision", "Automation"],
-    color: "var(--color-primary)",
-  },
-];
+import { exploringTopics } from "@/data";
 
 export default function About() {
   const [hoveredTopic, setHoveredTopic] = useState<string | null>(null);
@@ -76,7 +69,7 @@ export default function About() {
                   </div>
 
                   <div className="flex flex-wrap gap-3">
-                    {INTERESTS[0].topics.map((topic) => (
+                    {exploringTopics.map((topic) => (
                       <motion.span
                         key={topic}
                         onMouseEnter={() => setHoveredTopic(topic)}

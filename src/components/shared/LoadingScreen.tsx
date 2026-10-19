@@ -37,9 +37,9 @@ export default function LoadingScreen({ onComplete }: { onComplete: () => void }
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-6xl font-bold tracking-tighter"
+          className="px-6 text-3xl sm:text-4xl md:text-6xl font-bold tracking-tighter"
         >
-          AKSHAY KUMAR
+          AKSHAY KUMAR KOREPU
         </motion.div>
 
         <motion.div

@@ -2,23 +2,24 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FileText } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { githubUrl } from "@/data";
+import { githubUrl, linkedinUrl } from "@/data";
+import { GitHubIcon, LinkedInIcon } from "./BrandIcons";
 
 const NAV_LINKS = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
+  { name: "Beyond", href: "#beyond" },
   { name: "Contact", href: "#contact" },
 ];
 
+// LinkedIn stays hidden until a real profile URL is set in src/data.
 const SOCIAL_LINKS = [
-  { name: "GitHub", href: githubUrl },
-  { name: "LinkedIn", href: "#" },
-  { name: "Resume", href: "#" },
+  { name: "GitHub", href: githubUrl, Icon: GitHubIcon },
+  ...(linkedinUrl ? [{ name: "LinkedIn", href: linkedinUrl, Icon: LinkedInIcon }] : []),
 ];
 
 export default function Navbar() {
@@ -61,7 +62,7 @@ export default function Navbar() {
         {/* Left: Brand */}
         <Link href="/" className="group flex items-center gap-2">
           <span className="text-lg font-bold tracking-tighter group-hover:text-primary transition-colors">
-            AKSHAY <span className="text-primary">KUMAR</span>
+            AKSHAY KUMAR <span className="text-primary">KOREPU</span>
           </span>
         </Link>
 
@@ -92,17 +93,23 @@ export default function Navbar() {
         </div>
 
         {/* Right: Socials */}
-        <div className="flex items-center gap-2">
-          {SOCIAL_LINKS.map((social) => (
+        <div className="flex items-center gap-1.5">
+          {SOCIAL_LINKS.map(({ name, href, Icon }) => (
             <Link
-              key={social.name}
-              href={social.href}
+              key={name}
+              href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors text-xs font-bold"
-              title={social.name}
+              aria-label={`${name} (opens in a new tab)`}
+              className="group relative flex size-9 items-center justify-center rounded-full border border-transparent text-muted-foreground transition-all duration-300 hover:border-primary/30 hover:bg-primary/10 hover:text-foreground hover:shadow-[0_0_18px_-6px] hover:shadow-primary/60 focus-visible:border-primary/40 focus-visible:text-foreground focus-visible:outline-none"
             >
-              {social.name[0]}
+              <Icon className="size-[18px] transition-transform duration-300 group-hover:scale-110" />
+              <span
+                aria-hidden
+                className="pointer-events-none absolute top-full right-0 mt-2 whitespace-nowrap rounded-md border border-border bg-card/95 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0"
+              >
+                {name}
+              </span>
             </Link>
           ))}
         </div>

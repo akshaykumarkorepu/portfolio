@@ -44,11 +44,33 @@ export default function ProjectDetails({ project, onClose }: ProjectDetailsProps
           {/* Hero Section of Modal */}
           <div className="space-y-6">
             <div className="space-y-2">
+              {project.status && (
+                <span className="inline-block px-2 py-0.5 rounded-full border border-primary/20 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">
+                  {project.status}
+                </span>
+              )}
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
                 {project.title}
               </h2>
               <p className="text-xl text-muted-foreground">{project.subtitle}</p>
             </div>
+
+            {(project.team || project.role) && (
+              <div className="space-y-2 text-sm text-muted-foreground leading-relaxed max-w-3xl">
+                {project.team && (
+                  <p>
+                    <span className="text-foreground font-medium">{project.team.name}</span>
+                    {project.team.tagline && <span className="text-primary"> · {project.team.tagline}</span>}
+                    <span> · {project.team.members.join(", ")}</span>
+                  </p>
+                )}
+                {project.role && (
+                  <p>
+                    <span className="text-foreground font-medium">My role:</span> {project.role}
+                  </p>
+                )}
+              </div>
+            )}
 
             <div className="flex flex-wrap gap-3">
               {project.techStack.map((tech) => (
@@ -104,6 +126,20 @@ export default function ProjectDetails({ project, onClose }: ProjectDetailsProps
                   {project.details.solution}
                 </p>
               </section>
+
+              {project.details.challenges.length > 0 && (
+                <section className="space-y-3">
+                  <h4 className="text-lg font-semibold">Challenges</h4>
+                  <ul className="space-y-2">
+                    {project.details.challenges.map((challenge, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="mt-2 w-1 h-1 rounded-full bg-primary shrink-0" />
+                        {challenge}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
             </div>
 
             <div className="space-y-8">
@@ -134,20 +170,24 @@ export default function ProjectDetails({ project, onClose }: ProjectDetailsProps
           </div>
 
           {/* Bottom Actions */}
-          <div className="flex items-center justify-between pt-8 border-t border-border">
-            <div className="flex gap-4">
-              <Button variant="outline" asChild className="rounded-full">
-                <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                  <span className="text-xs font-bold">GH</span>
-                  GitHub
-                </a>
-              </Button>
-              <Button variant="outline" asChild className="rounded-full">
-                <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                  <ExternalLink size={18} />
-                  Live Demo
-                </a>
-              </Button>
+          <div className="flex items-center justify-between gap-4 pt-8 border-t border-border">
+            <div className="flex flex-wrap gap-4">
+              {project.links.github && (
+                <Button variant="outline" asChild className="rounded-full">
+                  <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <span className="text-xs font-bold">GH</span>
+                    GitHub
+                  </a>
+                </Button>
+              )}
+              {project.links.demo && (
+                <Button variant="outline" asChild className="rounded-full">
+                  <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <ExternalLink size={18} />
+                    Live Demo
+                  </a>
+                </Button>
+              )}
             </div>
             <Button onClick={onClose} variant="ghost" className="rounded-full">
               Close

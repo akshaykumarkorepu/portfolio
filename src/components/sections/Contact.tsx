@@ -4,7 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { githubUrl } from "@/data";
+import { email, githubUrl, gmailComposeHref, linkedinUrl } from "@/data";
+import { GitHubIcon, LinkedInIcon } from "@/components/shared/BrandIcons";
 
 export default function Contact() {
   return (
@@ -39,22 +40,32 @@ export default function Contact() {
           transition={{ delay: 0.2 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          <Button asChild size="lg" className="h-16 px-10 text-lg rounded-full w-full sm:w-auto transition-all hover:scale-105 group">
-            <a href="mailto:placeholder@email.com" className="flex items-center gap-3">
-              <Mail size={22} />
-              Email Me
+          <Button asChild variant="outline" size="lg" className="h-16 px-10 text-lg rounded-full w-full sm:w-auto transition-all hover:scale-105">
+            <a
+              href={gmailComposeHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Email ${email} in Gmail (opens in a new tab)`}
+              className="group/social flex items-center gap-3"
+            >
+              <Mail className="size-5 transition-all duration-300 group-hover/social:-translate-y-0.5 group-hover/social:text-primary" aria-hidden />
+              Email
             </a>
           </Button>
+          {linkedinUrl && (
+            <Button asChild variant="outline" size="lg" className="h-16 px-10 text-lg rounded-full w-full sm:w-auto transition-all hover:scale-105">
+              <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="group/social flex items-center gap-3">
+                <LinkedInIcon className="size-5 transition-all duration-300 group-hover/social:-translate-y-0.5 group-hover/social:text-primary" />
+                LinkedIn
+                <span className="sr-only">(opens in a new tab)</span>
+              </a>
+            </Button>
+          )}
           <Button asChild variant="outline" size="lg" className="h-16 px-10 text-lg rounded-full w-full sm:w-auto transition-all hover:scale-105">
-            <a href="#" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-              <span className="text-xs font-bold">LN</span>
-              LinkedIn
-            </a>
-          </Button>
-          <Button asChild variant="outline" size="lg" className="h-16 px-10 text-lg rounded-full w-full sm:w-auto transition-all hover:scale-105">
-            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
-              <span className="text-xs font-black">GH</span>
+            <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="group/social flex items-center gap-3">
+              <GitHubIcon className="size-5 transition-all duration-300 group-hover/social:-translate-y-0.5 group-hover/social:text-primary" />
               GitHub
+              <span className="sr-only">(opens in a new tab)</span>
             </a>
           </Button>
         </motion.div>

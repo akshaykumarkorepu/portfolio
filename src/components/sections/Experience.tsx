@@ -2,7 +2,14 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { experiences } from "@/data";
+import { ArrowDown } from "lucide-react";
+import { experiences, type Experience as ExperienceEntry } from "@/data";
+
+const CATEGORY_STYLES: Record<ExperienceEntry["category"], string> = {
+  leadership: "border-primary/30 bg-primary/10 text-primary",
+  technical: "border-border bg-muted/50 text-foreground",
+  community: "border-border bg-muted/30 text-muted-foreground",
+};
 
 export default function Experience() {
   return (
@@ -57,19 +64,37 @@ export default function Experience() {
 
               <div className="flex-1 pl-12 md:pl-0 space-y-4">
                 <div className="space-y-1">
+                  <span
+                    className={cn(
+                      "inline-block mb-2 px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wider",
+                      CATEGORY_STYLES[exp.category]
+                    )}
+                  >
+                    {exp.category}
+                  </span>
                   <h3 className="text-2xl font-bold tracking-tight">{exp.organization}</h3>
+                  {exp.previousRoles?.map((previous) => (
+                    <div key={previous} className="text-sm text-muted-foreground">
+                      <p>{previous}</p>
+                      <ArrowDown size={14} className="my-1 text-primary/60" aria-label="then" />
+                    </div>
+                  ))}
                   <p className="text-primary font-medium">{exp.role}</p>
-                  <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">{exp.duration}</span>
+                  {exp.duration && (
+                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-widest">{exp.duration}</span>
+                  )}
                 </div>
 
-                <ul className="space-y-3">
-                  {exp.description.map((item, i) => (
-                    <li key={i} className="text-muted-foreground leading-relaxed text-sm flex items-start gap-3">
-                      <span className="mt-1.5 w-1 h-1 rounded-full bg-primary shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                {exp.description.length > 0 && (
+                  <ul className="space-y-3">
+                    {exp.description.map((item, i) => (
+                      <li key={i} className="text-muted-foreground leading-relaxed text-sm flex items-start gap-3">
+                        <span className="mt-1.5 w-1 h-1 rounded-full bg-primary shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div className="hidden md:block flex-1" />

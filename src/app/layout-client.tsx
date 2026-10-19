@@ -8,6 +8,7 @@ import Navbar from "@/components/shared/Navbar";
 import CustomCursor from "@/components/shared/CustomCursor";
 import LoadingScreen from "@/components/shared/LoadingScreen";
 import ScrollProgress from "@/components/shared/ScrollProgress";
+import { IntroContext } from "@/lib/intro";
 
 const geistSans = Geist({
   variable: "--font-sans",
@@ -32,7 +33,9 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         <CustomCursor />
         <ScrollProgress />
         <Navbar />
-        <main>{children}</main>
+        <IntroContext.Provider value={!isLoading}>
+          <main>{children}</main>
+        </IntroContext.Provider>
       </body>
     </html>
   );
