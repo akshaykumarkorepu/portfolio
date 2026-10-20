@@ -89,11 +89,11 @@ export default function Achievements() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <section id="achievements" className="py-32 px-6 bg-background relative overflow-hidden">
+      <section id="achievements" className="py-20 md:py-32 px-6 bg-background relative overflow-hidden">
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-full h-1/2 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="mb-20 space-y-4">
+          <div className="mb-12 md:mb-20 space-y-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,7 +107,7 @@ export default function Achievements() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-5xl md:text-7xl font-bold tracking-tighter"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter"
             >
               Achievements & <span className="text-primary italic">milestones.</span>
             </motion.h2>
@@ -125,7 +125,7 @@ export default function Achievements() {
                       key={item.id}
                       {...reveal(i)}
                       whileHover={{ y: -6 }}
-                      className="group relative overflow-hidden rounded-3xl border border-primary/20 bg-card/60 p-8 backdrop-blur-sm transition-colors duration-500 hover:border-primary/50"
+                      className="group relative overflow-hidden rounded-3xl border border-primary/20 bg-card/60 p-6 sm:p-8 backdrop-blur-sm transition-colors duration-500 hover:border-primary/50"
                     >
                       <div
                         aria-hidden
@@ -140,7 +140,7 @@ export default function Achievements() {
                           >
                             <Icon size={26} aria-hidden />
                           </motion.div>
-                          <span className="px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-[10px] font-bold uppercase tracking-wider text-primary">
+                          <span className="px-3 py-1 rounded-full border border-primary/30 bg-primary/10 text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-primary">
                             {item.result}
                           </span>
                         </div>
@@ -168,7 +168,7 @@ export default function Achievements() {
                         <p className="font-semibold text-foreground">{item.title}</p>
                         <p className="text-xs font-mono uppercase tracking-widest text-muted-foreground">{item.context}</p>
                       </div>
-                      <span className="shrink-0 px-2.5 py-1 rounded-full border border-border bg-muted/40 text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
+                      <span className="shrink-0 px-2.5 py-1 rounded-full border border-border bg-muted/40 text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-muted-foreground">
                         {item.result}
                       </span>
                     </motion.li>
@@ -203,7 +203,7 @@ export default function Achievements() {
                           <Icon size={20} aria-hidden />
                         </motion.span>
                         <div className="space-y-1">
-                          <p className="text-[10px] font-bold uppercase tracking-wider text-primary">{item.result}</p>
+                          <p className="text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-primary">{item.result}</p>
                           <p className="font-semibold text-foreground leading-snug">{item.title}</p>
                         </div>
                       </div>
@@ -236,7 +236,7 @@ export default function Achievements() {
                           <div className="shrink-0 flex size-14 items-center justify-center rounded-2xl border border-primary/30 bg-primary/10 text-primary shadow-[0_0_30px_-8px] shadow-primary/50">
                             <Icon size={26} aria-hidden />
                           </div>
-                          <p className="text-7xl md:text-8xl font-black tracking-tighter leading-none text-primary">
+                          <p className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-none text-primary">
                             <CountUp value={item.value} suffix={item.suffix} reduce={reduce} />
                           </p>
                         </div>
@@ -268,7 +268,7 @@ export default function Achievements() {
                         <Icon size={22} aria-hidden />
                       </div>
                       <div className="min-w-0 space-y-3">
-                        <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-primary">
+                        <span className="inline-flex items-center gap-2 text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-primary">
                           <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" aria-hidden />
                           {selection.status}
                         </span>
@@ -280,7 +280,7 @@ export default function Achievements() {
                               href={selection.url}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-foreground transition-colors"
+                              className="group/link inline-flex min-h-11 lg:min-h-0 items-center gap-1.5 text-sm font-medium text-primary hover:text-foreground transition-colors"
                             >
                               Visit {selection.title}
                               <ArrowUpRight size={14} className="transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" aria-hidden />
@@ -288,7 +288,7 @@ export default function Achievements() {
                             </a>
                             <a
                               href={`#${selection.id}`}
-                              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                              className="inline-flex min-h-11 lg:min-h-0 items-center text-sm text-muted-foreground hover:text-foreground transition-colors"
                             >
                               More above
                             </a>
@@ -319,9 +319,9 @@ export default function Achievements() {
                       <div className="min-w-0 flex-1">
                         <p className="font-semibold text-foreground">{workshop.title}</p>
                         <p className="text-sm text-muted-foreground">{workshop.desc}</p>
-                        <p className="sm:hidden mt-1 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Participant</p>
+                        <p className="sm:hidden mt-1 text-[11px] sm:text-[10px] font-mono uppercase tracking-widest text-muted-foreground">Participant</p>
                       </div>
-                      <span className="hidden sm:inline shrink-0 text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
+                      <span className="hidden sm:inline shrink-0 text-[11px] sm:text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                         Participant
                       </span>
                     </motion.li>

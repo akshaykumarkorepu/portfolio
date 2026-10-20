@@ -9,7 +9,7 @@ import { GitHubIcon, LinkedInIcon } from "@/components/shared/BrandIcons";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-6 bg-background relative overflow-hidden">
+    <section id="contact" className="py-20 md:py-32 px-6 bg-background relative overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto text-center space-y-16 relative z-10">

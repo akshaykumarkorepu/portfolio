@@ -14,9 +14,9 @@ const BAR_HEIGHTS = [
 
 export default function GithubActivity() {
   return (
-    <section id="github" className="py-32 px-6 bg-background relative overflow-hidden">
+    <section id="github" className="py-20 md:py-32 px-6 bg-background relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-24 space-y-4">
+        <div className="mb-12 md:mb-24 space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export default function GithubActivity() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="relative p-12 rounded-3xl border border-border bg-card/30 backdrop-blur-sm overflow-hidden group"
+            className="relative p-7 sm:p-12 rounded-3xl border border-border bg-card/30 backdrop-blur-sm overflow-hidden group"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
 

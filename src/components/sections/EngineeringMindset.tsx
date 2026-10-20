@@ -45,9 +45,9 @@ export default function EngineeringMindset() {
   });
 
   return (
-    <section id="engineering" className="py-32 px-6 bg-background relative overflow-hidden" ref={containerRef}>
+    <section id="engineering" className="py-20 md:py-32 px-6 bg-background relative overflow-hidden" ref={containerRef}>
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-24 space-y-4 text-center">
+        <div className="mb-12 md:mb-24 space-y-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export default function EngineeringMindset() {
 
         <div className="relative flex flex-col gap-24">
           {/* Animated Connection Line */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-border">
+          <div className="absolute left-4 sm:left-8 top-0 bottom-0 w-px bg-border">
             <motion.div
               style={{ scaleY: scaleX }}
               className="absolute top-0 left-0 w-full h-full bg-primary origin-top"
@@ -83,10 +83,10 @@ export default function EngineeringMindset() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="relative pl-20 group"
+              className="relative pl-10 sm:pl-20 group"
             >
               {/* Dot on the line */}
-              <div className="absolute left-8 top-8 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-border bg-background group-hover:border-primary group-hover:bg-primary transition-all duration-300 z-10" />
+              <div className="absolute left-4 sm:left-8 top-8 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-border bg-background group-hover:border-primary group-hover:bg-primary transition-all duration-300 z-10" />
 
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 <div className="md:col-span-3 space-y-2">
@@ -96,7 +96,7 @@ export default function EngineeringMindset() {
                   <h3 className="text-2xl font-bold tracking-tight">{stage.title}</h3>
                 </div>
 
-                <div className="md:col-span-6 p-8 rounded-3xl border border-border bg-card/30 backdrop-blur-sm group-hover:border-primary/30 transition-all duration-500">
+                <div className="md:col-span-6 p-6 sm:p-8 rounded-3xl border border-border bg-card/30 backdrop-blur-sm group-hover:border-primary/30 transition-all duration-500">
                   <div className="flex items-center gap-4 mb-4">
                     <div className="p-2 rounded-lg bg-primary/10 text-primary">
                       <stage.icon size={24} />

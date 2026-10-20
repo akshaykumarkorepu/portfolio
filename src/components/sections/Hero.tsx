@@ -130,7 +130,7 @@ export default function Hero() {
           >
             <div className="overflow-hidden">
               <motion.h1
-                className="text-6xl md:text-8xl font-bold tracking-tighter leading-[1.05] text-foreground"
+                className="text-5xl sm:text-6xl md:text-8xl font-bold tracking-tighter leading-[1.05] text-foreground"
               >
                 {WORDS.map((word, i) => (
                   <motion.span

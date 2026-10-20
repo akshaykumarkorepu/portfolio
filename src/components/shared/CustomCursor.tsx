@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { useMediaQuery } from "@/lib/use-media-query";
 
 export default function CustomCursor() {
   const mouseX = useMotionValue(0);
@@ -13,6 +14,9 @@ export default function CustomCursor() {
   const cursorY = useSpring(mouseY, springConfig);
 
   const [isInteractive, setIsInteractive] = useState(false);
+  // Only for mouse users who haven't asked for less motion; touch screens never see it.
+  const finePointer = useMediaQuery("(hover: hover) and (pointer: fine)");
+  const reduceMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -41,6 +45,8 @@ export default function CustomCursor() {
       window.removeEventListener("mouseover", handleMouseOver);
     };
   }, [mouseX, mouseY]);
+
+  if (!finePointer || reduceMotion) return null;
 
   return (
     <motion.div

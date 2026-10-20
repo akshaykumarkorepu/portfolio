@@ -9,7 +9,7 @@ export default function About() {
   const [hoveredTopic, setHoveredTopic] = useState<string | null>(null);
 
   return (
-    <section id="about" className="py-32 px-6">
+    <section id="about" className="py-20 md:py-32 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
 
@@ -50,7 +50,7 @@ export default function About() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="relative p-12 rounded-3xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden group"
+              className="relative p-7 sm:p-12 rounded-3xl border border-border bg-card/50 backdrop-blur-sm overflow-hidden group"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none" />
 

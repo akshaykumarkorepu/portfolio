@@ -13,9 +13,9 @@ const CATEGORY_STYLES: Record<ExperienceEntry["category"], string> = {
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-32 px-6 bg-background relative overflow-hidden">
+    <section id="experience" className="py-20 md:py-32 px-6 bg-background relative overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="mb-24 space-y-4 text-center">
+        <div className="mb-12 md:mb-24 space-y-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ export default function Experience() {
                 <div className="space-y-1">
                   <span
                     className={cn(
-                      "inline-block mb-2 px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wider",
+                      "inline-block mb-2 px-2 py-0.5 rounded-full border text-[11px] sm:text-[10px] font-bold uppercase tracking-wider",
                       CATEGORY_STYLES[exp.category]
                     )}
                   >

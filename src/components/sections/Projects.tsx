@@ -14,10 +14,10 @@ export default function Projects() {
   const project = projects.find((p) => p.id === selectedProject);
 
   return (
-    <section id="projects" className="py-32 px-6 bg-background">
+    <section id="projects" className="py-20 md:py-32 px-6 bg-background">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-24 space-y-4">
+        <div className="mb-12 md:mb-24 space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ function ProjectShowcase({ project, index, onSelect }: { project: Project; index
           <div className="flex items-center gap-3">
             <span className="text-sm font-mono text-primary/50">0{index + 1}</span>
             {project.status && (
-              <span className="px-2 py-0.5 rounded-full border border-primary/20 bg-primary/10 text-primary text-[10px] font-bold uppercase tracking-wider">
+              <span className="px-2 py-0.5 rounded-full border border-primary/20 bg-primary/10 text-primary text-[11px] sm:text-[10px] font-bold uppercase tracking-wider">
                 {project.status}
               </span>
             )}
@@ -99,7 +99,7 @@ function ProjectShowcase({ project, index, onSelect }: { project: Project; index
 
         <div className="flex flex-wrap gap-2">
           {project.techStack.map((tech) => (
-            <span key={tech} className="text-[10px] uppercase font-bold px-2 py-1 rounded-md bg-muted text-muted-foreground border border-border">
+            <span key={tech} className="text-[11px] sm:text-[10px] uppercase font-bold px-2 py-1 rounded-md bg-muted text-muted-foreground border border-border">
               {tech}
             </span>
           ))}
@@ -132,7 +132,7 @@ function ProjectShowcase({ project, index, onSelect }: { project: Project; index
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${project.title} on GitHub`}
-              className="p-3 text-muted-foreground hover:text-foreground transition-colors"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center lg:block lg:min-h-0 lg:min-w-0 p-3 text-muted-foreground hover:text-foreground transition-colors"
             >
               <span className="text-xs font-bold">GH</span>
             </a>
@@ -159,20 +159,20 @@ function SystemVisual({ project }: { project: Project }) {
   const metrics = project.metrics ?? [];
 
   return (
-    <div className="flex flex-col items-center justify-center space-y-12 py-12">
-      <div className="flex flex-wrap justify-center gap-8 items-center">
+    <div className="flex flex-col items-center justify-center space-y-8 py-8 sm:space-y-12 sm:py-12">
+      <div className="grid w-full grid-cols-3 gap-x-2 gap-y-6 sm:flex sm:w-auto sm:flex-wrap sm:justify-center sm:gap-8 items-start sm:items-center">
         {project.architecture.map((item, i) => (
           <React.Fragment key={item.step}>
             <div className="flex flex-col items-center gap-3 group/node">
               <div className="w-12 h-12 rounded-full border border-primary/30 bg-background flex items-center justify-center text-xs font-bold text-primary transition-all group-hover/node:scale-110 group-hover/node:border-primary group-hover/node:bg-primary group-hover/node:text-white">
                 {i + 1}
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground group-hover/node:text-foreground transition-colors">
+              <span className="text-center text-[11px] sm:text-[10px] font-bold uppercase tracking-wider text-muted-foreground group-hover/node:text-foreground transition-colors">
                 {item.step}
               </span>
             </div>
             {i < project.architecture.length - 1 && (
-              <div className="relative w-12 h-px bg-border group-hover/node:bg-primary/50 transition-colors">
+              <div className="relative hidden sm:block w-12 h-px bg-border group-hover/node:bg-primary/50 transition-colors">
                 <motion.div
                   animate={{ x: [0, 48] }}
                   transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
@@ -193,7 +193,7 @@ function SystemVisual({ project }: { project: Project }) {
           {metrics.map((metric) => (
             <div key={metric.label} className="text-center space-y-1">
               <div className="text-2xl font-bold text-foreground">{metric.value}</div>
-              <div className="text-[10px] uppercase font-medium text-muted-foreground leading-tight">
+              <div className="text-[11px] sm:text-[10px] uppercase font-medium text-muted-foreground leading-tight">
                 {metric.label}
               </div>
             </div>

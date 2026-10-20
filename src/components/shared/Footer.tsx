@@ -14,15 +14,15 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-6">
-          <Link href={githubUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-xs font-bold tracking-widest uppercase">
+          <Link href={githubUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center px-1 lg:block lg:min-h-0 lg:px-0 text-muted-foreground hover:text-foreground transition-colors text-xs font-bold tracking-widest uppercase">
             GitHub
           </Link>
           {linkedinUrl && (
-            <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors text-xs font-bold tracking-widest uppercase">
+            <Link href={linkedinUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center px-1 lg:block lg:min-h-0 lg:px-0 text-muted-foreground hover:text-foreground transition-colors text-xs font-bold tracking-widest uppercase">
               LinkedIn
             </Link>
           )}
-          <Link href={emailHref} className="text-muted-foreground hover:text-foreground transition-colors text-xs font-bold tracking-widest uppercase">
+          <Link href={emailHref} className="inline-flex min-h-11 items-center px-1 lg:block lg:min-h-0 lg:px-0 text-muted-foreground hover:text-foreground transition-colors text-xs font-bold tracking-widest uppercase">
             Email
           </Link>
         </div>

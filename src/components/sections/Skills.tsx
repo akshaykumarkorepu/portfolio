@@ -33,9 +33,9 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-32 px-6 bg-background/50">
+    <section id="skills" className="py-20 md:py-32 px-6 bg-background/50">
       <div className="max-w-6xl mx-auto">
-        <div className="mb-24 space-y-4">
+        <div className="mb-12 md:mb-24 space-y-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -34,7 +34,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         <ScrollProgress />
         <Navbar />
         <IntroContext.Provider value={!isLoading}>
-          <main>{children}</main>
+          <main className="overflow-x-clip">{children}</main>
         </IntroContext.Provider>
       </body>
     </html>

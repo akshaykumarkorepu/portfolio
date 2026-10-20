@@ -6,9 +6,9 @@ import { exploringAreas, exploringFocus } from "@/data";
 
 export default function CurrentlyBuilding() {
   return (
-    <section className="py-32 px-6 bg-background relative overflow-hidden">
+    <section className="py-20 md:py-32 px-6 bg-background relative overflow-hidden">
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="mb-24 space-y-4 text-center">
+        <div className="mb-12 md:mb-24 space-y-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export default function CurrentlyBuilding() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-10 rounded-3xl border border-border bg-card/50 backdrop-blur-sm group hover:border-primary/40 transition-all duration-500 relative overflow-hidden"
+              className="p-7 sm:p-10 rounded-3xl border border-border bg-card/50 backdrop-blur-sm group hover:border-primary/40 transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-10 transition-opacity">
                 <div className="w-24 h-24 bg-primary rounded-full blur-3xl" />
@@ -47,7 +47,7 @@ export default function CurrentlyBuilding() {
                   <h3 className="text-2xl font-bold tracking-tight">{item.title}</h3>
                   <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-muted/50 border border-border">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                    <span className="text-[10px] uppercase font-bold text-muted-foreground">{item.status}</span>
+                    <span className="text-[11px] sm:text-[10px] uppercase font-bold text-muted-foreground">{item.status}</span>
                   </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">
@@ -63,7 +63,7 @@ export default function CurrentlyBuilding() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: exploringAreas.length * 0.1 }}
-            className="md:col-span-3 p-10 rounded-3xl border border-border bg-card/50 backdrop-blur-sm group hover:border-primary/40 transition-all duration-500 relative overflow-hidden"
+            className="md:col-span-3 p-7 sm:p-10 rounded-3xl border border-border bg-card/50 backdrop-blur-sm group hover:border-primary/40 transition-all duration-500 relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-10 transition-opacity">
               <div className="w-24 h-24 bg-primary rounded-full blur-3xl" />
@@ -75,7 +75,7 @@ export default function CurrentlyBuilding() {
                   <h3 className="text-2xl font-bold tracking-tight">{exploringFocus.title}</h3>
                   <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-muted/50 border border-border">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                    <span className="text-[10px] uppercase font-bold text-muted-foreground">{exploringFocus.status}</span>
+                    <span className="text-[11px] sm:text-[10px] uppercase font-bold text-muted-foreground">{exploringFocus.status}</span>
                   </div>
                 </div>
                 <p className="text-muted-foreground leading-relaxed">

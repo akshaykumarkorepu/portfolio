@@ -241,7 +241,7 @@ function SportsCard() {
             animate={{ x: active ? 32 : 0 }}
             transition={{ duration: 0.9, ease: EASE }}
           />
-          <div className="relative z-10 flex flex-1 flex-col gap-6 p-8">
+          <div className="relative z-10 flex flex-1 flex-col gap-6 p-6 sm:p-8">
             <div className="flex items-center justify-between">
               <div className="p-2.5 rounded-xl bg-primary/10 text-primary border border-primary/20">
                 <Zap size={20} aria-hidden />
@@ -312,7 +312,7 @@ function GamingCard({ reduce }: { reduce: boolean }) {
             ))}
           </motion.div>
 
-          <div className="relative z-10 p-8 space-y-6">
+          <div className="relative z-10 p-6 sm:p-8 space-y-6">
             <div className="flex items-center justify-between">
               <IconBadge icon={Gamepad2} active={active} spin={-10} />
               <motion.span
@@ -483,7 +483,7 @@ function CinemaCard({ reduce }: { reduce: boolean }) {
       {(active) => (
         <>
           <FilmStrip reduce={reduce} />
-          <div className="relative z-10 flex flex-1 flex-col gap-6 p-8">
+          <div className="relative z-10 flex flex-1 flex-col gap-6 p-6 sm:p-8">
             <div className="flex items-center gap-2">
               <IconBadge icon={Clapperboard} active={active} spin={-12} />
               <IconBadge icon={Headphones} active={active} spin={8} />
@@ -544,7 +544,7 @@ function TravelCard({ reduce }: { reduce: boolean }) {
   return (
     <Card label={content.travel.title} delay={0.24}>
       {(active) => (
-        <div className="relative z-10 flex flex-1 flex-col gap-6 p-8">
+        <div className="relative z-10 flex flex-1 flex-col gap-6 p-6 sm:p-8">
           <div className="flex items-center justify-between">
             <IconBadge icon={MapPin} active={active} spin={-8} />
             <motion.span
@@ -626,7 +626,7 @@ function MoreCard() {
   return (
     <Card label="A few more things about me" className="md:col-span-2 lg:col-span-1" delay={0.28}>
       {() => (
-        <div className="relative z-10 p-8 space-y-6">
+        <div className="relative z-10 p-6 sm:p-8 space-y-6">
           <h3 className="text-2xl font-bold tracking-tight">
             A few more things <span className="text-primary italic">about me.</span>
           </h3>
@@ -661,11 +661,11 @@ export default function BeyondTheCode() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <section id="beyond" className="py-32 px-6 bg-background relative overflow-hidden">
+      <section id="beyond" className="py-20 md:py-32 px-6 bg-background relative overflow-hidden">
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-full h-2/3 bg-primary/5 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="mb-20 space-y-4">
+          <div className="mb-12 md:mb-20 space-y-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

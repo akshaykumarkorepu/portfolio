@@ -8,9 +8,9 @@ import { dorm2vc } from "@/data";
 export default function Dorm2VC() {
   return (
     <MotionConfig reducedMotion="user">
-      <section id="dorm2vc" className="py-32 px-6 bg-background relative overflow-hidden">
+      <section id="dorm2vc" className="py-20 md:py-32 px-6 bg-background relative overflow-hidden">
         <div className="max-w-6xl mx-auto relative z-10">
-          <div className="mb-16 space-y-4">
+          <div className="mb-10 md:mb-16 space-y-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -65,13 +65,13 @@ export default function Dorm2VC() {
 
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-primary">Selected · Inaugural cohort</span>
+                  <span className="text-[11px] sm:text-[10px] uppercase font-bold tracking-wider text-primary">Selected · Inaugural cohort</span>
                 </div>
 
                 <dl className="grid grid-cols-3 gap-4 pt-6 border-t border-border">
                   {dorm2vc.facts.map((fact) => (
                     <div key={fact.label} className="space-y-1">
-                      <dt className="text-[10px] uppercase font-medium tracking-wider text-muted-foreground">{fact.label}</dt>
+                      <dt className="text-[11px] sm:text-[10px] uppercase font-medium tracking-wider text-muted-foreground">{fact.label}</dt>
                       <dd className="text-base sm:text-lg font-bold text-foreground leading-tight">{fact.value}</dd>
                     </div>
                   ))}
@@ -103,7 +103,7 @@ export default function Dorm2VC() {
                     href={dorm2vc.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/10 text-sm font-medium text-primary hover:bg-primary/20 hover:border-primary/50 hover:text-foreground transition-all group/visit"
+                    className="inline-flex min-h-11 lg:min-h-0 items-center gap-2 px-5 py-2.5 rounded-full border border-primary/30 bg-primary/10 text-sm font-medium text-primary hover:bg-primary/20 hover:border-primary/50 hover:text-foreground transition-all group/visit"
                   >
                     Visit Dorm2VC
                     <ExternalLink size={14} className="group-hover/visit:-translate-y-0.5 group-hover/visit:translate-x-0.5 transition-transform" />
@@ -111,7 +111,7 @@ export default function Dorm2VC() {
                   </a>
                   <a
                     href="#projects"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group/link"
+                    className="inline-flex min-h-11 lg:min-h-0 items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors group/link"
                   >
                     See what I&apos;m building with SAHVA
                     <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
